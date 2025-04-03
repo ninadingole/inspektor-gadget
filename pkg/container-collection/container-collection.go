@@ -484,7 +484,7 @@ func (cc *ContainerCollection) Subscribe(key interface{}, selector ContainerSele
 	if cc.pubsub == nil {
 		panic("ContainerCollection's pubsub uninitialized")
 	}
-	ret := []*Container{}
+	var ret []*Container
 	cc.pubsub.Subscribe(key, func(event PubSubEvent) {
 		if ContainerSelectorMatches(&selector, event.Container) {
 			f(event)

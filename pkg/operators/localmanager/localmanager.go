@@ -456,6 +456,8 @@ func (l *localManagerTrace) PreGadgetRun() error {
 			containers = append(containers, l.manager.fakeContainer)
 		}
 
+		log.Debugf("attaching to existing containers, len: %d", len(containers))
+
 		for _, container := range containers {
 			attachContainerFunc(container)
 		}
